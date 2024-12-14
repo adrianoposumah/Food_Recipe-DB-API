@@ -1,0 +1,40 @@
+[
+    {
+        "id": 1,
+        "name": "Nasi Goreng",
+        "ingredients": [
+            "Nasi putih",
+            "Bawang merah",
+            "Bawang putih",
+            "Cabai merah",
+            "Telur",
+            "Kecap manis",
+            "Garam",
+            "Merica",
+            "Minyak goreng"
+        ],
+        "instructions": "Iris Bumbu. Iris tipis bawang merah, bawang putih, dan cabai merah.\\r\\nPanaskan Minyak. Panaskan sedikit minyak goreng di wajan.\\r\\nTumis Bumbu. Tumis bawang merah, bawang putih, dan cabai merah hingga harum.\\r\\nMasak Telur. Masukkan telur ke dalam wajan. Orak-arik hingga matang.\\r\\nMasukkan Nasi. Masukkan nasi putih ke dalam wajan. Aduk rata.\\r\\nTambahkan Bumbu. Tambahkan kecap manis, garam, dan merica. Aduk rata hingga semua bahan tercampur.\\r\\nKoreksi Rasa. Koreksi rasa nasi goreng. Jika perlu, tambahkan garam atau kecap manis.\\r\\nSajikan. Nasi goreng siap disajikan.",
+        "location": "Indonesia",
+        "image": "app\\static\\images\\nasigoreng.jpeg"
+    },
+    {
+        "id": 2,
+        "name": "Salad Ayam",
+        "ingredients": [
+            "Ayam fillet",
+            "Selada",
+            "Tomat",
+            "Timun",
+            "Bawang bombay",
+            "Wortel",
+            "Mayones",
+            "Saus sambal",
+            "Garam",
+            "Merica",
+            "Air jeruk nipis"
+        ],
+        "instructions": "Potong Ayam. Potong ayam fillet menjadi dadu kecil. Marinasi dengan garam, merica, dan air jeruk nipis. Diamkan selama 15 menit.\\r\\nPanggang atau goreng ayam. Panggang ayam hingga matang kecoklatan atau goreng hingga matang dan berwarna kuning keemasan. Tiriskan.\\r\\nPotong Sayur. Potong selada, tomat, timun, bawang bombay, dan wortel sesuai selera.\\r\\nCampur Bahan. Dalam wadah besar, campurkan ayam, selada, tomat, timun, bawang bombay, dan wortel.\\r\\nBuat Dressing. Dalam mangkuk kecil, campurkan mayones, saus sambal, garam, dan merica. Aduk rata.\\r\\nTambahkan Dressing. Tuangkan dressing ke atas salad. Aduk rata.\\r\\nSajikan. Salad ayam siap disajikan. Dinginkan di lemari es agar lebih nikmat.",
+        "location": "Thailand",
+        "image": "app\\static\\images\\chicken-salad.jpg"
+    }
+]
