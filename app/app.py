@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import os
 from werkzeug.utils import secure_filename
 import json
@@ -48,6 +48,17 @@ info:
   description: Testd
   version:"1.0.0"
 """
+
+@app.route("/")
+def index():
+    """
+    Serve the index.html page
+    ---
+    responses:
+      200:
+        description: Rendered homepage
+    """
+    return render_template("index.html")
 
 
 @app.route("/api/recipes", methods=["GET"])
