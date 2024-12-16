@@ -48,7 +48,15 @@ function displayRecipes(recipes) {
 }
 
 // POST a new recipe
-async function addRecipe(recipeData, imageFile) {
+async function addRecipe() {
+  const recipeData = {
+    name: document.getElementById("recipe-name").value,
+    location: document.getElementById("recipe-location").value,
+    ingredients: document.getElementById("recipe-ingredients").value,
+    instructions: document.getElementById("recipe-instructions").value,
+  };
+  const imageFile = document.getElementById("recipe-image").files[0];
+
   const formData = new FormData();
   Object.keys(recipeData).forEach((key) => formData.append(key, recipeData[key]));
   if (imageFile) formData.append("image", imageFile);
@@ -68,7 +76,16 @@ async function addRecipe(recipeData, imageFile) {
 }
 
 // PUT (update) a recipe
-async function updateRecipe(id, recipeData, imageFile) {
+async function updateRecipe() {
+  const id = document.getElementById("recipe-id").value;
+  const recipeData = {
+    name: document.getElementById("recipe-name").value,
+    location: document.getElementById("recipe-location").value,
+    ingredients: document.getElementById("recipe-ingredients").value,
+    instructions: document.getElementById("recipe-instructions").value,
+  };
+  const imageFile = document.getElementById("recipe-image").files[0];
+
   const formData = new FormData();
   Object.keys(recipeData).forEach((key) => formData.append(key, recipeData[key]));
   if (imageFile) formData.append("image", imageFile);
@@ -88,7 +105,23 @@ async function updateRecipe(id, recipeData, imageFile) {
 }
 
 // PATCH (partial update) a recipe
-async function partialUpdateRecipe(id, recipeData, imageFile) {
+async function partialUpdateRecipe() {
+  const id = document.getElementById("recipe-id").value;
+  const recipeData = {};
+  if (document.getElementById("recipe-name").value) {
+    recipeData.name = document.getElementById("recipe-name").value;
+  }
+  if (document.getElementById("recipe-location").value) {
+    recipeData.location = document.getElementById("recipe-location").value;
+  }
+  if (document.getElementById("recipe-ingredients").value) {
+    recipeData.ingredients = document.getElementById("recipe-ingredients").value;
+  }
+  if (document.getElementById("recipe-instructions").value) {
+    recipeData.instructions = document.getElementById("recipe-instructions").value;
+  }
+  const imageFile = document.getElementById("recipe-image").files[0];
+
   const formData = new FormData();
   Object.keys(recipeData).forEach((key) => formData.append(key, recipeData[key]));
   if (imageFile) formData.append("image", imageFile);
