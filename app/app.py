@@ -51,13 +51,6 @@ info:
 
 @app.route("/")
 def index():
-    """
-    Serve the index.html page
-    ---
-    responses:
-      200:
-        description: Rendered homepage
-    """
     return render_template("index.html")
 
 
@@ -119,8 +112,8 @@ def get_recipe():
             image:
               type: string
               description: The file path to the recipe's image
-      404:
-        description: Recipe not found
+        404:
+            description: Recipe not found
     """
     id = request.args.get("id", type=int)  # Extract 'id' from query parameters
 
@@ -335,15 +328,15 @@ def update_recipe():
         filepath = os.path.normpath(filepath)
         recipe["image"] = filepath
 
-    recipe["name"] = data.get("name", recipe["name"])
-    recipe["ingredients"] = data.get(
-        "ingredients", ",".join(recipe["ingredients"])
-    ).split(",")
-    recipe["instructions"] = data.get("instructions", recipe["instructions"])
-    recipe["location"] = data.get("location", recipe["location"])
+    # Update nilai field atau set ke kosong jika tidak diinput
+    recipe["name"] = data.get("name", "")
+    recipe["ingredients"] = data.get("ingredients", "").split(",")
+    recipe["instructions"] = data.get("instructions", "")
+    recipe["location"] = data.get("location", "")
 
     write_json(recipes)
     return jsonify(recipe)
+
 
 
 @app.route("/api/recipes", methods=["PATCH"])
