@@ -3,14 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recipe List</title>
+    <title>Recipe Management</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>Recipes</h1>
-      <div id="recipe-container" class="recipe-container"></div>
-    </div>
+    <header>
+      <h1>Recipe Management</h1>
+    </header>
+
+    <main>
+      <section id="recipe-form">
+        <h2>Add or Update Recipe</h2>
+        <form id="recipe-management-form">
+          <input type="hidden" id="recipe-id" name="id" />
+          <div>
+            <label for="recipe-name">Name:</label>
+            <input type="text" id="recipe-name" name="name" required />
+          </div>
+          <div>
+            <label for="recipe-location">Location:</label>
+            <input type="text" id="recipe-location" name="location" required />
+          </div>
+          <div>
+            <label for="recipe-ingredients">Ingredients (comma-separated):</label>
+            <input type="text" id="recipe-ingredients" name="ingredients" required />
+          </div>
+          <div>
+            <label for="recipe-instructions">Instructions:</label>
+            <textarea id="recipe-instructions" name="instructions" required></textarea>
+          </div>
+          <div>
+            <label for="recipe-image">Image:</label>
+            <input type="file" id="recipe-image" name="image" />
+          </div>
+          <div class="form-actions">
+            <button type="button" onclick="submitRecipe()">Submit (POST)</button>
+            <button type="button" onclick="updateRecipe()">Update (PUT)</button>
+            <button type="button" onclick="partialUpdateRecipe()">Partial Update (PATCH)</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="recipe-list">
+        <h2>Recipe List</h2>
+        <div id="recipe-container" class="grid-container"></div>
+      </section>
+    </main>
+
     <script src="script.js"></script>
   </body>
 </html>
