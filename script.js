@@ -1,159 +1,194 @@
-const apiUrl = "https://adriano02.pythonanywhere.com/api/recipes";
-const recipeContainer = document.getElementById("recipe-container");
+const API_URL = "https://adriano02.pythonanywhere.com/api/recipes";
 
-// Fetch and display recipes
-async function fetchRecipes() {
+// Fetch and display all recipes
+async function fetchAllRecipes() {
   try {
-    const response = await fetch(apiUrl);
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const response = await fetch(API_URL);
     const recipes = await response.json();
     displayRecipes(recipes);
   } catch (error) {
-    recipeContainer.innerHTML = `<p>Error: ${error.message}</p>`;
+    console.error("Error fetching recipes:", error);
   }
 }
 
+// Display recipes in the grid
 function displayRecipes(recipes) {
-  if (recipes.length === 0) {
-    recipeContainer.innerHTML = `<p>No recipes found.</p>`;
-    return;
-  }
-
-  recipeContainer.innerHTML = ""; // Clear existing content
+  const container = document.getElementById("recipes-container");
+  container.innerHTML = ""; // Clear previous content
 
   recipes.forEach((recipe) => {
     const card = document.createElement("div");
-    card.className = "recipe-card";
+    card.classList.add("card");
 
-    const ingredients = recipe.ingredients.map((ing) => `<li>${ing}</li>`).join("");
-    const instructions = recipe.instructions.replace(/\\r\\n/g, "<br>");
+    // Replace \r\n with <br> for better readability
+    const formattedInstructions = recipe.instructions.replace(/\\r\\n/g, "<br>");
 
     card.innerHTML = `
       <img src="https://adriano02.pythonanywhere.com/${recipe.image}" alt="${recipe.name}">
-      <div class="info">
-        <h3>${recipe.name}</h3>
-        <p><strong>Location:</strong> ${recipe.location}</p>
-        <p><strong>Ingredients:</strong></p>
-        <ul>${ingredients}</ul>
-      </div>
-      <div class="instructions">
-        <p><strong>Instructions:</strong></p>
-        <p>${instructions}</p>
-        <button onclick="deleteRecipe(${recipe.id})">Delete</button>
-        <button onclick="editRecipe(${recipe.id})">Edit</button>
-      </div>
+      <h3>${recipe.name}</h3>
+      <p><span class="ingredients">Ingredients:</span> ${recipe.ingredients.join(", ")}</p>
+      <p><span class="instructions">Instructions:</span> ${formattedInstructions}</p>
+      <button class="delete-btn" onclick="deleteRecipe(${recipe.id})">Delete</button>
     `;
-    recipeContainer.appendChild(card);
+    container.appendChild(card);
   });
 }
 
-// POST a new recipe
-async function addRecipe() {
-  const recipeData = {
-    name: document.getElementById("recipe-name").value,
-    location: document.getElementById("recipe-location").value,
-    ingredients: document.getElementById("recipe-ingredients").value,
-    instructions: document.getElementById("recipe-instructions").value,
-  };
-  const imageFile = document.getElementById("recipe-image").files[0];
-
-  const formData = new FormData();
-  Object.keys(recipeData).forEach((key) => formData.append(key, recipeData[key]));
-  if (imageFile) formData.append("image", imageFile);
+// Search recipes by ID
+async function searchById() {
+  const id = document.getElementById("search-id").value;
+  if (!id) return alert("Please enter an ID to search.");
 
   try {
-    const response = await fetch(apiUrl, {
+    const response = await fetch(`${API_URL}/search/${id}`);
+    if (response.ok) {
+      const recipe = await response.json();
+      displayRecipes([recipe]); // Display single recipe
+    } else {
+      alert("Recipe not found");
+    }
+  } catch (error) {
+    console.error("Error searching by ID:", error);
+  }
+}
+
+// Search recipes by Name
+async function searchByName() {
+  const name = document.getElementById("search-name").value;
+  if (!name) return alert("Please enter a name to search.");
+
+  try {
+    const response = await fetch(`${API_URL}/search/${name}`);
+    if (response.ok) {
+      const recipes = await response.json();
+      displayRecipes(recipes);
+    } else {
+      alert("No recipes found");
+    }
+  } catch (error) {
+    console.error("Error searching by name:", error);
+  }
+}
+
+// Function to create a new recipe (POST) with image upload
+async function createRecipe() {
+  const formData = getFormDataWithFile();
+  if (!formData) return;
+
+  try {
+    const response = await fetch(API_URL, {
       method: "POST",
       body: formData,
     });
-    if (!response.ok) throw new Error("Failed to add recipe");
-    const newRecipe = await response.json();
-    console.log("Added:", newRecipe);
-    fetchRecipes();
+    if (response.ok) {
+      alert("Recipe created successfully!");
+      fetchAllRecipes(); // Refresh recipe list
+    } else {
+      alert("Failed to create recipe");
+    }
   } catch (error) {
-    console.error(error.message);
+    console.error("Error creating recipe:", error);
   }
 }
 
-// PUT (update) a recipe
+// Function to update a recipe entirely (PUT) with image upload
 async function updateRecipe() {
   const id = document.getElementById("recipe-id").value;
-  const recipeData = {
-    name: document.getElementById("recipe-name").value,
-    location: document.getElementById("recipe-location").value,
-    ingredients: document.getElementById("recipe-ingredients").value,
-    instructions: document.getElementById("recipe-instructions").value,
-  };
-  const imageFile = document.getElementById("recipe-image").files[0];
+  if (!id) return alert("Please provide an ID for updating");
 
-  const formData = new FormData();
-  Object.keys(recipeData).forEach((key) => formData.append(key, recipeData[key]));
-  if (imageFile) formData.append("image", imageFile);
+  const formData = getFormDataWithFile();
+  if (!formData) return;
 
   try {
-    const response = await fetch(`${apiUrl}/${id}`, {
+    const response = await fetch(`${API_URL}/${id}`, {
       method: "PUT",
       body: formData,
     });
-    if (!response.ok) throw new Error("Failed to update recipe");
-    const updatedRecipe = await response.json();
-    console.log("Updated:", updatedRecipe);
-    fetchRecipes();
+    if (response.ok) {
+      alert("Recipe updated successfully!");
+      fetchAllRecipes(); // Refresh recipe list
+    } else {
+      alert("Failed to update recipe");
+    }
   } catch (error) {
-    console.error(error.message);
+    console.error("Error updating recipe:", error);
   }
 }
 
-// PATCH (partial update) a recipe
-async function partialUpdateRecipe() {
+// Function to partially update a recipe (PATCH) with image upload
+async function patchRecipe() {
   const id = document.getElementById("recipe-id").value;
-  const recipeData = {};
-  if (document.getElementById("recipe-name").value) {
-    recipeData.name = document.getElementById("recipe-name").value;
-  }
-  if (document.getElementById("recipe-location").value) {
-    recipeData.location = document.getElementById("recipe-location").value;
-  }
-  if (document.getElementById("recipe-ingredients").value) {
-    recipeData.ingredients = document.getElementById("recipe-ingredients").value;
-  }
-  if (document.getElementById("recipe-instructions").value) {
-    recipeData.instructions = document.getElementById("recipe-instructions").value;
-  }
-  const imageFile = document.getElementById("recipe-image").files[0];
+  if (!id) return alert("Please provide an ID for patching");
 
-  const formData = new FormData();
-  Object.keys(recipeData).forEach((key) => formData.append(key, recipeData[key]));
-  if (imageFile) formData.append("image", imageFile);
+  const formData = getFormDataWithFile(true); // Allow partial data
+  if (!formData) return alert("No data to update");
 
   try {
-    const response = await fetch(`${apiUrl}/${id}`, {
+    const response = await fetch(`${API_URL}/${id}`, {
       method: "PATCH",
       body: formData,
     });
-    if (!response.ok) throw new Error("Failed to partially update recipe");
-    const updatedRecipe = await response.json();
-    console.log("Partially Updated:", updatedRecipe);
-    fetchRecipes();
+    if (response.ok) {
+      alert("Recipe patched successfully!");
+      fetchAllRecipes(); // Refresh recipe list
+    } else {
+      alert("Failed to patch recipe");
+    }
   } catch (error) {
-    console.error(error.message);
+    console.error("Error patching recipe:", error);
   }
 }
 
-// DELETE a recipe
+// Utility function to get data from form with file support
+function getFormDataWithFile(allowPartial = false) {
+  const formData = new FormData();
+  const id = document.getElementById("recipe-id").value.trim();
+  const name = document.getElementById("recipe-name").value.trim();
+  const imageFile = document.getElementById("recipe-image").files[0];
+  const ingredients = document.getElementById("recipe-ingredients").value.trim();
+  const instructions = document.getElementById("recipe-instructions").value.trim();
+  const location = document.getElementById("recipe-location").value.trim();
+
+  if (id) formData.append("id", id);
+  if (name || !allowPartial) formData.append("name", name);
+  if (imageFile || !allowPartial) formData.append("image", imageFile); // Append file
+  if (ingredients || !allowPartial)
+    formData.append(
+      "ingredients",
+      ingredients
+        .split(",")
+        .map((i) => i.trim())
+        .join(",")
+    );
+  if (instructions || !allowPartial) formData.append("instructions", instructions);
+  if (location || !allowPartial) formData.append("location", location);
+
+  if (formData.has("name") || formData.has("image") || formData.has("ingredients") || formData.has("instructions") || formData.has("location")) {
+    return formData;
+  } else {
+    alert("No data provided");
+    return null;
+  }
+}
+
+// Delete a recipe by ID
 async function deleteRecipe(id) {
+  if (!confirm("Are you sure you want to delete this recipe?")) return;
+
   try {
-    const response = await fetch(`${apiUrl}/${id}`, {
+    const response = await fetch(`${API_URL}/${id}`, {
       method: "DELETE",
     });
-    if (!response.ok) throw new Error("Failed to delete recipe");
-    const result = await response.json();
-    console.log(result.message);
-    fetchRecipes();
+    if (response.ok) {
+      alert("Recipe deleted successfully!");
+      fetchAllRecipes(); // Refresh recipe list
+    } else {
+      alert("Failed to delete recipe");
+    }
   } catch (error) {
-    console.error(error.message);
+    console.error("Error deleting recipe:", error);
   }
 }
 
-// Initialize
-document.addEventListener("DOMContentLoaded", fetchRecipes);
+// Fetch all recipes on page load
+fetchAllRecipes();
