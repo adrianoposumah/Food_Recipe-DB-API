@@ -80,8 +80,8 @@ def get_recipes():
     return jsonify(recipes)
 
 
-@app.route("/api/recipes/search/<int:id>", methods=["GET"])
-def get_recipe(id):
+@app.route("/api/recipes/search", methods=["GET"])
+def get_recipe():
     """
     Retrieve a specific recipe by its ID.
     ---
@@ -122,6 +122,8 @@ def get_recipe(id):
       404:
         description: Recipe not found
     """
+    id = request.args.get("id", type=int)  # Extract 'id' from query parameters
+
     recipes = read_json()
     recipe = next((r for r in recipes if r["id"] == id), None)
     if recipe:
@@ -129,8 +131,8 @@ def get_recipe(id):
     return jsonify({"message": "Resep tidak ditemukan"}), 404
 
 
-@app.route("/api/recipes/search/<string:keyword>", methods=["GET"])
-def search_recipes(keyword):
+@app.route("/api/recipes/search/", methods=["GET"])
+def search_recipes():
     """
     Search for recipes by keyword
     ---
@@ -152,16 +154,21 @@ def search_recipes(keyword):
       404:
         description: No recipes found
     """
+    # Ambil parameter 'keyword' dari query string
     try:
+        keyword = request.args.get("name", "").strip()
+        if not keyword:
+            return jsonify({"message": "Kata kunci tidak boleh kosong"}), 400
         recipes = read_json()
         matched_recipes = [
-            r for r in recipes if keyword.lower().strip() in r["name"].lower().strip()
+            r for r in recipes if keyword.lower() in r.get("name", "").lower()
         ]
         if matched_recipes:
             return jsonify(matched_recipes), 200
         return jsonify({"message": "Resep tidak ditemukan"}), 404
     except Exception as e:
-        return jsonify({"message": f"Terjadi kesalahan: {str(e)}"}), 500
+        print(f"Error: {str(e)}")
+        return jsonify({"message": "Terjadi kesalahan pada server"}), 500
 
 
 @app.route("/api/recipes", methods=["POST"])
@@ -257,8 +264,8 @@ def add_recipe():
     return jsonify(new_recipe), 201
 
 
-@app.route("/api/recipes/<int:id>", methods=["PUT"])
-def update_recipe(id):
+@app.route("/api/recipes", methods=["PUT"])
+def update_recipe():
     """
     Update a recipe completely
     ---
@@ -300,8 +307,14 @@ def update_recipe(id):
       404:
         description: Recipe not found
     """
+    # Ambil ID dari query parameter
+    recipe_id = request.args.get("id", type=int)
+
+    if not recipe_id:
+        return jsonify({"message": "Parameter 'id' diperlukan"}), 400
+
     recipes = read_json()
-    recipe = next((r for r in recipes if r["id"] == id), None)
+    recipe = next((r for r in recipes if r["id"] == recipe_id), None)
     if not recipe:
         return jsonify({"message": "Resep tidak ditemukan"}), 404
 
@@ -333,8 +346,8 @@ def update_recipe(id):
     return jsonify(recipe)
 
 
-@app.route("/api/recipes/<int:id>", methods=["PATCH"])
-def partial_update_recipe(id):
+@app.route("/api/recipes", methods=["PATCH"])
+def partial_update_recipe():
     """
     Partially update a recipe.
     ---
@@ -402,8 +415,14 @@ def partial_update_recipe(id):
       400:
         description: Invalid input.
     """
+    # Ambil ID dari query parameter
+    recipe_id = request.args.get("id", type=int)
+
+    if not recipe_id:
+        return jsonify({"message": "Parameter 'id' diperlukan"}), 400
+
     recipes = read_json()
-    recipe = next((r for r in recipes if r["id"] == id), None)
+    recipe = next((r for r in recipes if r["id"] == recipe_id), None)
     if not recipe:
         return jsonify({"message": "Resep tidak ditemukan"}), 404
 
@@ -437,8 +456,8 @@ def partial_update_recipe(id):
     return jsonify(recipe)
 
 
-@app.route("/api/recipes/<int:id>", methods=["DELETE"])
-def delete_recipe(id):
+@app.route("/api/recipes", methods=["DELETE"])
+def delete_recipe():
     """
     Delete a recipe.
     ---
@@ -462,9 +481,15 @@ def delete_recipe(id):
       404:
         description: Recipe not found.
     """
+    # Ambil ID dari query parameter
+    recipe_id = request.args.get("id", type=int)
+
+    if not recipe_id:
+        return jsonify({"message": "Parameter 'id' diperlukan"}), 400
+
     try:
         recipes = read_json()
-        updated_recipes = [r for r in recipes if r["id"] != id]
+        updated_recipes = [r for r in recipes if r["id"] != recipe_id]
         write_json(updated_recipes)
 
         if len(updated_recipes) == len(recipes):

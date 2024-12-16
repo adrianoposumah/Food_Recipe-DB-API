@@ -1,66 +1,149 @@
 [
-  {
-    "id": 1,
-    "name": "Nasi Goreng",
-    "ingredients": ["Nasi Putih", " Bawang Merah", "Bawang Putih", " Cabai Merah", "Telur", "Kecap Manis", "Garam", "Merica", "Minyak Goreng"],
-    "instructions": "Iris Bumbu. Iris tipis bawang merah, bawang putih, dan cabai merah\\r\\nPanaskan Minyak. Panaskan sedikit minyak goreng di wajan.\\r\\nTumis Bumbu. Tumis bawang merah, bawang putih, dan cabai merah hingga harum.\\r\\nMasak Telur. Masukkan telur ke dalam wajan. Orak-arik hingga matang.\\r\\nMasukkan Nasi. Masukkan nasi putih ke dalam wajan. Aduk rata.\\r\\nTambahkan Bumbu. Tambahkan kecap manis, garam, dan merica. Aduk rata hingga tercampur semua.\\r\\nKoreksi Rasa. Koreksi rasa nasi goreng. Jika perlu, tambahkan garam atau kecap manis.\\r\\nSajikan. Nasi goreng siap disajikan",
-    "location": "Indonesia",
-    "image": "static/images/super_fast_chicken_nasi_goreng-70ebaad35e331f814a14606fec664c12.jpeg"
-  },
-  {
-    "id": 2,
-    "name": "Salad Ayam",
-    "ingredients": ["Ayam fillet", "Selada", "Tomat", "Timun", "Bawang bombay", "Wortel", "Mayones", "Saus sambal", "Garam", "Merica", "Air jeruk nipis"],
-    "instructions": "Potong Ayam. Potong ayam fillet menjadi dadu kecil. Marinasi dengan garam, merica, dan air jeruk nipis. Diamkan selama 15 menit.\\r\\nPanggang atau goreng ayam. Panggang ayam hingga matang kecoklatan atau goreng hingga matang dan berwarna kuning keemasan. Tiriskan.\\r\\nPotong Sayur. Potong selada, tomat, timun, bawang bombay, dan wortel sesuai selera.\\r\\nCampur Bahan. Dalam wadah besar, campurkan ayam, selada, tomat, timun, bawang bombay, dan wortel.\\r\\nBuat Dressing. Dalam mangkuk kecil, campurkan mayones, saus sambal, garam, dan merica. Aduk rata.\\r\\nTambahkan Dressing. Tuangkan dressing ke atas salad. Aduk rata.\\r\\nSajikan. Salad ayam siap disajikan. Dinginkan di lemari es agar lebih nikmat.",
-    "location": "Thailand",
-    "image": "static/images/chicken-salad.jpg"
-  },
-  {
-    "id": 3,
-    "name": "Pizza",
-    "ingredients": ["Adonan pizza siap pakai", "Saus pizza", "Keju mozzarella parut", "Jamur kancing", "Bawang bombay", "Oregano kering", "Minyak zaitun"],
-    "instructions": "Siapkan Adonan.  Keluarkan adonan pizza dari kemasan.  Biarkan pada suhu ruang selama 15-20 menit agar lebih mudah dibentuk.\\r\\nBentuk Adonan.  Taburi sedikit tepung pada permukaan meja kerja.  Gunakan rolling pin untuk menggiling adonan pizza hingga membentuk lingkaran tipis dengan ketebalan sekitar 0.5 cm.\\r\\nOlesi Saus.  Pindahkan adonan pizza ke loyang yang sudah diolesi sedikit minyak.  Olesi permukaan adonan dengan saus pizza secara merata, sisakan sedikit bagian pinggir.\\r\\nTata Topping.  Taburi  permukaan pizza dengan keju mozzarella parut.  Iris tipis bawang bombay dan jamur kancing, lalu tata di atas keju.\\r\\nPanggang Pizza.  Panggang pizza dalam oven yang sudah dipanaskan pada suhu 200 derajat Celcius selama 15-20 menit, atau hingga pinggiran pizza berwarna kecoklatan dan keju meleleh.\\r\\nTambahkan Oregano.  Keluarkan pizza dari oven.  Taburi dengan oregano kering.\\r\\nSajikan. Potong pizza menjadi beberapa bagian dan sajikan selagi hangat.",
-    "location": "Italia",
-    "image": "static/images/margherita-pizza0.jpg"
-  },
-  {
-    "id": 4,
-    "name": "Burger",
-    "ingredients": ["Daging sapi cincang", "Roti burger", "Keju cheddar", "Bawang bombay", "Selada", "Tomat", "Saus tomat", "Mayones", "Mustard", "Garam", "Merica", "Minyak\u00a0goreng"],
-    "instructions": "Buat Patty. Campur daging sapi cincang dengan garam dan merica. Bentuk adonan daging menjadi patty bulat pipih. Panggang Patty. Panaskan sedikit minyak goreng di wajan datar. Panggang patty hingga matang kecoklatan di kedua sisi. Panggang Roti. Panggang roti burger di wajan atau oven hingga sedikit kecoklatan. Tata Burger. Olesi bagian bawah roti burger dengan saus tomat dan mustard. Letakkan patty di atasnya, lalu tambahkan keju cheddar, bawang bombay, selada, dan tomat. Tutup Burger.  Olesi bagian atas roti burger dengan mayones, lalu tutup burger. Sajikan. Cheese burger\u00a0siap\u00a0disajikan.",
-    "location": "Amerika",
-    "image": "static/images/cheeseburgers.jpg"
-  },
-  {
-    "id": 5,
-    "name": "Rahang Tuna Bakar",
-    "ingredients": ["Ikan Tuna", "Jeruk Kesturi", "Garam", "Minyak Goreng", "Penyedap\u00a0Rasa"],
-    "instructions": "Siapkan Rahang Tuna. Bersihkan rahang tuna segar di bawah air mengalir untuk menghilangkan kotoran dan bau amis.\r\nMarinasi Rahang Tuna. Peras jeruk kesturi, tampung airnya dalam wadah, lalu tambahkan garam dan penyedap rasa. Lumuri campuran ini ke seluruh bagian rahang tuna menggunakan kuas. Diamkan selama 30 menit agar bumbu meresap.  \r\nSiapkan Olesan. Campurkan minyak goreng ke dalam sisa air perasan jeruk untuk digunakan sebagai olesan saat memanggang.  \r\nPanggang Rahang Tuna. Panaskan arang hingga menjadi bara, lalu panggang rahang tuna di atasnya. Selama memanggang, oleskan campuran minyak dan perasan jeruk ke rahang tuna secara merata. Balik rahang tuna perlahan agar matang merata.  \r\n\r\nTambahkan Sambal. Saat rahang tuna hampir matang, oleskan sambal ikan untuk memberikan rasa yang lebih kaya.  \r\n\r\nSajikan. Panggang rahang tuna hingga berwarna kecoklatan, pastikan tidak gosong. Rahang tuna bakar\u00a0siap\u00a0disajikan.",
-    "location": "Indonesia",
-    "image": "static/images/63de43420ac2f.jpg"
-  },
-  {
-    "id": 6,
-    "name": "Ayam Bumbu Bali",
-    "ingredients": ["Ayam potong", "Bawang merah", "Bawang putih", "Kunyit", "Jahe", "Kemiri", "Ketumbar", "Lengkuas", "Serai", "Santan", "Kecap manis", "Garam", "Gula\u00a0merah"],
-    "instructions": "Haluskan semua bumbu. Lumuri ayam dengan bumbu halus, diamkan minimal 30 menit agar bumbu meresap.\r\nBakar ayam di atas bara api atau menggunakan oven hingga matang dan berwarna kecoklatan. Bolak-balik agar matang merata.\r\nSambil membakar, olesi ayam dengan sisa bumbu halus dan santan\u00a0secara\u00a0berkala.",
-    "location": "Indonesia",
-    "image": "static/images/ayam-bumbu-bali.jpeg"
-  },
-  {
-    "id": 7,
-    "name": "Taco",
-    "ingredients": ["Tortilla", "Daging sapi cincang", "Tomat", "Selada", "Keju cheddar", "Bawang bombay", "Saus\u00a0taco", "Salsa"],
-    "instructions": "Tumis daging sapi cincang hingga matang. Bumbui dengan garam dan merica.\r\nPanaskan tortilla sebentar di atas teflon atau panggangan.\r\nIsi tortilla dengan daging, tomat, selada, keju, bawang bombay, saus taco, dan salsa.\r\nLipat tortilla dan\u00a0sajikan\u00a0segera.",
-    "location": "Mexico",
-    "image": "static/images/taco.jpg"
-  },
-  {
-    "id": 8,
-    "name": "Kimchi",
-    "ingredients": ["Kimchi", "Daging babi", "Tahu", "Bawang bombay", "Daun bawang", "Gochujang", "Gochugaru", "Kaldu", "Bawang\u00a0putih", "Garam"],
-    "instructions": "Tumis bawang bombay dan bawang putih.\r\nMasukkan daging, masak hingga berubah warna.\r\nTambahkan kimchi, gochujang, gochugaru, kaldu, dan air.\r\nMasak hingga mendidih.\r\nTambahkan tahu dan daun bawang,\u00a0masak\u00a0sebentar.",
-    "location": "Korea Selatan",
-    "image": "static/images/dde92c76-b5ac-47f3-bd89-b354827edb92_169.jpg"
-  }
+    {
+        "id": 1,
+        "name": "Nasi Sedap",
+        "ingredients": [
+            "Nasi Putih",
+            " Bawang Merah",
+            "Bawang Putih",
+            " Cabai Merah",
+            "Telur",
+            "Kecap Manis",
+            "Garam",
+            "Merica",
+            "Minyak Goreng"
+        ],
+        "instructions": "Iris Bumbu. Iris tipis bawang merah, bawang putih, dan cabai merah\\r\\nPanaskan Minyak. Panaskan sedikit minyak goreng di wajan.\\r\\nTumis Bumbu. Tumis bawang merah, bawang putih, dan cabai merah hingga harum.\\r\\nMasak Telur. Masukkan telur ke dalam wajan. Orak-arik hingga matang.\\r\\nMasukkan Nasi. Masukkan nasi putih ke dalam wajan. Aduk rata.\\r\\nTambahkan Bumbu. Tambahkan kecap manis, garam, dan merica. Aduk rata hingga tercampur semua.\\r\\nKoreksi Rasa. Koreksi rasa nasi goreng. Jika perlu, tambahkan garam atau kecap manis.\\r\\nSajikan. Nasi goreng siap disajikan",
+        "location": "Indonesia",
+        "image": "static/images/super_fast_chicken_nasi_goreng-70ebaad35e331f814a14606fec664c12.jpeg"
+    },
+    {
+        "id": 2,
+        "name": "Salad Ayam",
+        "ingredients": [
+            "Ayam fillet",
+            "Selada",
+            "Tomat",
+            "Timun",
+            "Bawang bombay",
+            "Wortel",
+            "Mayones",
+            "Saus sambal",
+            "Garam",
+            "Merica",
+            "Air jeruk nipis"
+        ],
+        "instructions": "Potong Ayam. Potong ayam fillet menjadi dadu kecil. Marinasi dengan garam, merica, dan air jeruk nipis. Diamkan selama 15 menit.\\r\\nPanggang atau goreng ayam. Panggang ayam hingga matang kecoklatan atau goreng hingga matang dan berwarna kuning keemasan. Tiriskan.\\r\\nPotong Sayur. Potong selada, tomat, timun, bawang bombay, dan wortel sesuai selera.\\r\\nCampur Bahan. Dalam wadah besar, campurkan ayam, selada, tomat, timun, bawang bombay, dan wortel.\\r\\nBuat Dressing. Dalam mangkuk kecil, campurkan mayones, saus sambal, garam, dan merica. Aduk rata.\\r\\nTambahkan Dressing. Tuangkan dressing ke atas salad. Aduk rata.\\r\\nSajikan. Salad ayam siap disajikan. Dinginkan di lemari es agar lebih nikmat.",
+        "location": "Thailand",
+        "image": "static/images/chicken-salad.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Pizza",
+        "ingredients": [
+            "Adonan pizza siap pakai",
+            "Saus pizza",
+            "Keju mozzarella parut",
+            "Jamur kancing",
+            "Bawang bombay",
+            "Oregano kering",
+            "Minyak zaitun"
+        ],
+        "instructions": "Siapkan Adonan.  Keluarkan adonan pizza dari kemasan.  Biarkan pada suhu ruang selama 15-20 menit agar lebih mudah dibentuk.\\r\\nBentuk Adonan.  Taburi sedikit tepung pada permukaan meja kerja.  Gunakan rolling pin untuk menggiling adonan pizza hingga membentuk lingkaran tipis dengan ketebalan sekitar 0.5 cm.\\r\\nOlesi Saus.  Pindahkan adonan pizza ke loyang yang sudah diolesi sedikit minyak.  Olesi permukaan adonan dengan saus pizza secara merata, sisakan sedikit bagian pinggir.\\r\\nTata Topping.  Taburi  permukaan pizza dengan keju mozzarella parut.  Iris tipis bawang bombay dan jamur kancing, lalu tata di atas keju.\\r\\nPanggang Pizza.  Panggang pizza dalam oven yang sudah dipanaskan pada suhu 200 derajat Celcius selama 15-20 menit, atau hingga pinggiran pizza berwarna kecoklatan dan keju meleleh.\\r\\nTambahkan Oregano.  Keluarkan pizza dari oven.  Taburi dengan oregano kering.\\r\\nSajikan. Potong pizza menjadi beberapa bagian dan sajikan selagi hangat.",
+        "location": "Italia",
+        "image": "static/images/margherita-pizza0.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Burger",
+        "ingredients": [
+            "Daging sapi cincang",
+            "Roti burger",
+            "Keju cheddar",
+            "Bawang bombay",
+            "Selada",
+            "Tomat",
+            "Saus tomat",
+            "Mayones",
+            "Mustard",
+            "Garam",
+            "Merica",
+            "Minyak\u00a0goreng"
+        ],
+        "instructions": "Buat Patty. Campur daging sapi cincang dengan garam dan merica. Bentuk adonan daging menjadi patty bulat pipih. Panggang Patty. Panaskan sedikit minyak goreng di wajan datar. Panggang patty hingga matang kecoklatan di kedua sisi. Panggang Roti. Panggang roti burger di wajan atau oven hingga sedikit kecoklatan. Tata Burger. Olesi bagian bawah roti burger dengan saus tomat dan mustard. Letakkan patty di atasnya, lalu tambahkan keju cheddar, bawang bombay, selada, dan tomat. Tutup Burger.  Olesi bagian atas roti burger dengan mayones, lalu tutup burger. Sajikan. Cheese burger\u00a0siap\u00a0disajikan.",
+        "location": "Amerika",
+        "image": "static/images/cheeseburgers.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Rahang Tuna Bakar",
+        "ingredients": [
+            "Ikan Tuna",
+            "Jeruk Kesturi",
+            "Garam",
+            "Minyak Goreng",
+            "Penyedap\u00a0Rasa"
+        ],
+        "instructions": "Siapkan Rahang Tuna. Bersihkan rahang tuna segar di bawah air mengalir untuk menghilangkan kotoran dan bau amis.\r\nMarinasi Rahang Tuna. Peras jeruk kesturi, tampung airnya dalam wadah, lalu tambahkan garam dan penyedap rasa. Lumuri campuran ini ke seluruh bagian rahang tuna menggunakan kuas. Diamkan selama 30 menit agar bumbu meresap.  \r\nSiapkan Olesan. Campurkan minyak goreng ke dalam sisa air perasan jeruk untuk digunakan sebagai olesan saat memanggang.  \r\nPanggang Rahang Tuna. Panaskan arang hingga menjadi bara, lalu panggang rahang tuna di atasnya. Selama memanggang, oleskan campuran minyak dan perasan jeruk ke rahang tuna secara merata. Balik rahang tuna perlahan agar matang merata.  \r\n\r\nTambahkan Sambal. Saat rahang tuna hampir matang, oleskan sambal ikan untuk memberikan rasa yang lebih kaya.  \r\n\r\nSajikan. Panggang rahang tuna hingga berwarna kecoklatan, pastikan tidak gosong. Rahang tuna bakar\u00a0siap\u00a0disajikan.",
+        "location": "Indonesia",
+        "image": "static/images/63de43420ac2f.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Ayam Bumbu Bali",
+        "ingredients": [
+            "Ayam potong",
+            "Bawang merah",
+            "Bawang putih",
+            "Kunyit",
+            "Jahe",
+            "Kemiri",
+            "Ketumbar",
+            "Lengkuas",
+            "Serai",
+            "Santan",
+            "Kecap manis",
+            "Garam",
+            "Gula\u00a0merah"
+        ],
+        "instructions": "Haluskan semua bumbu. Lumuri ayam dengan bumbu halus, diamkan minimal 30 menit agar bumbu meresap.\r\nBakar ayam di atas bara api atau menggunakan oven hingga matang dan berwarna kecoklatan. Bolak-balik agar matang merata.\r\nSambil membakar, olesi ayam dengan sisa bumbu halus dan santan\u00a0secara\u00a0berkala.",
+        "location": "Indonesia",
+        "image": "static/images/ayam-bumbu-bali.jpeg"
+    },
+    {
+        "id": 7,
+        "name": "Taco",
+        "ingredients": [
+            "Tortilla",
+            "Daging sapi cincang",
+            "Tomat",
+            "Selada",
+            "Keju cheddar",
+            "Bawang bombay",
+            "Saus\u00a0taco",
+            "Salsa"
+        ],
+        "instructions": "Tumis daging sapi cincang hingga matang. Bumbui dengan garam dan merica.\r\nPanaskan tortilla sebentar di atas teflon atau panggangan.\r\nIsi tortilla dengan daging, tomat, selada, keju, bawang bombay, saus taco, dan salsa.\r\nLipat tortilla dan\u00a0sajikan\u00a0segera.",
+        "location": "Mexico",
+        "image": "static/images/taco.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Kimchi JIggae",
+        "ingredients": [
+            "Kimchi",
+            "Daging babi",
+            "Tahu",
+            "Bawang bombay",
+            "Daun bawang",
+            "Gochujang",
+            "Gochugaru",
+            "Kaldu",
+            "Bawang\u00a0putih",
+            "Garam"
+        ],
+        "instructions": "Tumis bawang bombay dan bawang putih.\r\nMasukkan daging, masak hingga berubah warna.\r\nTambahkan kimchi, gochujang, gochugaru, kaldu, dan air.\r\nMasak hingga mendidih.\r\nTambahkan tahu dan daun bawang,\u00a0masak\u00a0sebentar.",
+        "location": "Korea Selatan",
+        "image": "static/images/dde92c76-b5ac-47f3-bd89-b354827edb92_169.jpg"
+    }
 ]
